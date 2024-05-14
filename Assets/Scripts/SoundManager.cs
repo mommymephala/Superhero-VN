@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class SoundClip
+public struct SoundClip
 {
     public AudioClip clip;
-    public float volume = 1.0f;
+    public float volume;
 }
 
 public class SoundManager : MonoBehaviour
@@ -17,10 +17,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(string soundName, bool isUISound = false, bool loop = false)
     {
-        var source = isUISound ? uiAudioSource : backgroundAudioSource;
-        var soundClip = Array.Find(soundClips, s => s.clip.name.Equals(soundName, StringComparison.OrdinalIgnoreCase));
+        AudioSource source = isUISound ? uiAudioSource : backgroundAudioSource;
+        SoundClip soundClip = Array.Find(soundClips, s => s.clip.name.Equals(soundName, StringComparison.OrdinalIgnoreCase));
 
-        if (soundClip?.clip != null)
+        if (soundClip.clip != null)
         {
             if (!isUISound && source.isPlaying)
             {

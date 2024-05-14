@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [Serializable]
-public class StoryImage
+public struct StoryImage
 {
     public string name;
     public Image image;
@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
     {
         if (_storyImages.TryGetValue(imageName, out Image newImage))
         {
-            foreach (var img in _storyImages.Values)
+            foreach (Image img in _storyImages.Values)
             {
                 if (img != newImage && img.gameObject.activeSelf)
                 {
@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeIn(Image image)
+    private static IEnumerator FadeIn(Image image)
     {
         var canvasGroup = image.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -114,7 +114,7 @@ public class UIManager : MonoBehaviour
         canvasGroup.alpha = 1;
     }
 
-    private IEnumerator FadeOut(Image image)
+    private static IEnumerator FadeOut(Image image)
     {
         var canvasGroup = image.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour
     private void InitializeStoryImages()
     {
         _storyImages.Clear();
-        foreach (var item in storyImagesList)
+        foreach (StoryImage item in storyImagesList)
         {
             if (!_storyImages.ContainsKey(item.name))
             {

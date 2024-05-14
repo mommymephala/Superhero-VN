@@ -27,7 +27,7 @@ public class StoryManager : MonoBehaviour
     private void RefreshView()
     {
         uiManager.ClearUI();
-        string fullText = "";
+        var fullText = "";
 
         while (_story.canContinue)
         {
@@ -44,7 +44,7 @@ public class StoryManager : MonoBehaviour
     {
         foreach (var tag in tags)
         {
-            string[] parts = tag.Split(':');
+            var parts = tag.Split(':');
             switch (parts[0].Trim())
             {
                 case "play_sound":
