@@ -1329,6 +1329,8 @@ GameObject:
   - component: {fileID: 2009679605}
   - component: {fileID: 2009679604}
   - component: {fileID: 2009679606}
+  - component: {fileID: 2009679608}
+  - component: {fileID: 2009679607}
   m_Layer: 0
   m_Name: Scene Controller
   m_TagString: Untagged
@@ -1349,31 +1351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJsonAsset: {fileID: 4900000, guid: 6cf48bb6d89824cc69e35b43f9a1aca6, type: 3}
-  canvas: {fileID: 159342111}
-  textbox: {fileID: 4826332865993744163, guid: cc1465655e92b5c47a708cd77ddc407e, type: 3}
-  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
   crtController: {fileID: 868424274}
-  uiAudioSource: {fileID: 934762855}
-  backgroundAudioSource: {fileID: 1981891003}
-  buttonClickSound: {fileID: 8300000, guid: f5108e1640301994fadd131c33221f5c, type: 3}
-  soundClips:
-  - clip: {fileID: 8300000, guid: 879ada5f0279bbf409c441fb1bafd9a4, type: 3}
-    volume: 0.1
-  - clip: {fileID: 8300000, guid: 27676d6321b5a734898416f248490314, type: 3}
-    volume: 0.5
-  - clip: {fileID: 8300000, guid: 614e634d4ee46784b8917ef41cf8e173, type: 3}
-    volume: 0.5
-  storyImagesList:
-  - name: tar_hand
-    image: {fileID: 477747711}
-  - name: woman
-    image: {fileID: 82540502}
-  - name: arms
-    image: {fileID: 668386741}
-  - name: metro
-    image: {fileID: 1563854435}
-  - name: hacker
-    image: {fileID: 2027702445}
+  soundManager: {fileID: 2009679607}
+  uiManager: {fileID: 2009679608}
 --- !u!4 &2009679605
 Transform:
   m_ObjectHideFlags: 0
@@ -1404,6 +1384,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 27
+--- !u!114 &2009679607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009679603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ec372c46144acb8c7d9a8b47300370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAudioSource: {fileID: 934762855}
+  backgroundAudioSource: {fileID: 1981891003}
+  buttonClickSound: {fileID: 8300000, guid: f5108e1640301994fadd131c33221f5c, type: 3}
+  soundClips:
+  - clip: {fileID: 8300000, guid: 879ada5f0279bbf409c441fb1bafd9a4, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 614e634d4ee46784b8917ef41cf8e173, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 27676d6321b5a734898416f248490314, type: 3}
+    volume: 0.5
+--- !u!114 &2009679608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009679603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a4a39bccb0452ca3501529ed780f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 159342111}
+  textbox: {fileID: 4826332865993744163, guid: cc1465655e92b5c47a708cd77ddc407e, type: 3}
+  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
+  storyImagesList:
+  - name: arms
+    image: {fileID: 668386741}
+  - name: hacker
+    image: {fileID: 2027702445}
+  - name: metro
+    image: {fileID: 1563854435}
+  - name: tar_hand
+    image: {fileID: 477747711}
+  - name: woman
+    image: {fileID: 82540502}
 --- !u!1001 &2027702443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1486,7 +1514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4261798485612539720, guid: 79f89c3f0b460b94fb41febb25fb64fb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: -1720
       objectReference: {fileID: 0}
     - target: {fileID: 4261798485612539720, guid: 79f89c3f0b460b94fb41febb25fb64fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
