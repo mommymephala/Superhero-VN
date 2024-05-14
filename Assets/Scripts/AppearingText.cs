@@ -5,8 +5,9 @@ public class AppearingText : MonoBehaviour
 {
     [SerializeField] private float timePerCharacter = 0.1f;
     private TMPro.TextMeshProUGUI textMesh;
-    private string fullText;
+    public string fullText;
     private float timer;
+    public Coroutine typingCoroutine;
 
     private void Awake()
     {
@@ -20,10 +21,13 @@ public class AppearingText : MonoBehaviour
             fullText = text;
             textMesh.text = "";
             timer = 0;
-            StartCoroutine(TypeText());
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+            }
+            typingCoroutine = StartCoroutine(TypeText());
         }
     }
-
 
     private IEnumerator TypeText()
     {
@@ -32,6 +36,12 @@ public class AppearingText : MonoBehaviour
 
         while (currentLength < totalLength)
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                textMesh.text = fullText;
+                yield break;
+            }
+
             timer += Time.deltaTime;
             if (timer > timePerCharacter)
             {

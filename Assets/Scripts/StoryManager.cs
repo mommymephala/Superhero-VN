@@ -9,7 +9,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private UIManager uiManager;
 
-    private Story _story;
+    public Story _story;
     private bool _uiLocked;
 
     private void Awake()
@@ -21,12 +21,13 @@ public class StoryManager : MonoBehaviour
     {
         _story = new Story(inkJsonAsset.text);
         uiManager.ClearUI();
+        uiManager.InitializeStoryImages();
         RefreshView();
     }
 
     private void RefreshView()
     {
-        uiManager.ClearUI();
+        uiManager.ClearUI(); // Ensure UI is cleared
         var fullText = "";
 
         while (_story.canContinue)
@@ -35,9 +36,18 @@ public class StoryManager : MonoBehaviour
             fullText += text + (_story.canContinue ? "\n" : "");
             HandleTags(_story.currentTags);
         }
-        
-        uiManager.CreateChoiceButtons(_story.currentChoices, OnClickChoiceButton);
-        uiManager.UpdateText(fullText);
+
+        uiManager.UpdateText(fullText, _story.currentChoices, OnClickChoiceButton, () =>
+        {
+            if (_story.currentChoices.Count > 0)
+            {
+                uiManager.CreateChoiceButtons(_story.currentChoices, OnClickChoiceButton);
+            }
+            else
+            {
+                uiManager.CreateQuitButton();
+            }
+        });
     }
 
     private void HandleTags(List<string> tags)
