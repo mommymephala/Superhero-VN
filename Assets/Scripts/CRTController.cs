@@ -17,7 +17,7 @@ public class CRTController : MonoBehaviour
     {
         if (crtCamera == null)
         {
-            Debug.LogWarning($"The {nameof(crtCamera)} field hasn't been assigned! Null references will likely abound in short order... :(" );
+            Debug.LogWarning($"The {nameof(crtCamera)} field hasn't been assigned!" );
         }
         
         // Initial zoom to demonstrate functionality.

@@ -90,8 +90,10 @@ VAR has_moved_on = false
     *** [Think about the mission]
         # change_image:father
         # play_sound:casual_loop
-        The drive to search for my father to get answers has led me to this day. But I feel like I am in the middle of a much bigger game now. Am I ready for it?
-        **** [Move on]
+        The drive to search for my father to get answers has led me to this day. For whom did he develop this power? Where is he now?
+    **** [Continue]
+        But no matter the answers, I must purge this city of this filth. That's my mission. No human being deserves to feel the fear of their body losing its integrity.
+        ***** [Move on]
             -> confrontation
     *** [Move on]
         -> confrontation
@@ -135,11 +137,13 @@ VAR has_moved_on = false
                                 -> good_ending
         = very_bad_ending
         # change_image:zane_death
+        # lerp_preset
         I jump onto Zane, but from the puddles on the ground, two arms of flesh grab me. As the arms pin me down, Zane walks into my face and makes a grabbing motion with his hand. An awful cracking sound fills the room. I understand what happened and scream at the top of my lungs... She is dead.
         -> END
 
         = bad_ending
         # change_image:zane_death
+        # lerp_preset
         I couldn't resist the temptation. The anger. I turn my hand into a giant sharp blade, formed with flesh. And I slice him. In a blink of an eye, he is dead.
         * [Continue]
         # change_image:hacker

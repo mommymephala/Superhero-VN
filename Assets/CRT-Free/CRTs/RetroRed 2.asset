@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RetroRed 2
   m_EditorClassIdentifier: 
   data:
-    pixelationAmount: 2
+    pixelationAmount: 1
     maxColorChannels:
       red: 2
       green: 1
@@ -42,4 +42,4 @@ MonoBehaviour:
       sizeMultiplier: 2
     innerMonitorShineRadius: -0.087
     innerMonitorShineCurve: 10
-  validationId: 84bd6bb1-5b64-4ec3-88eb-6ad2582c1be9
+  validationId: a343d9d0-cc1a-4432-bca1-74dd4387df43

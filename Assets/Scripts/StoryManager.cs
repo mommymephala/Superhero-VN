@@ -58,7 +58,7 @@ public class StoryManager : MonoBehaviour
             switch (parts[0].Trim())
             {
                 case "play_sound":
-                    soundManager.PlaySound(parts[1].Trim());
+                    soundManager.PlaySound(parts[1].Trim(), false, true);
                     break;
                 case "change_image":
                     uiManager.TransitionImage(parts[1].Trim());
